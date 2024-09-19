@@ -1,11 +1,11 @@
-package example.baumblog
+package example.blog
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class BaumBlogApplication
+class BlogApplication
 
 fun main(args: Array<String>) {
-    runApplication<BaumBlogApplication>(*args)
+    runApplication<BlogApplication>(*args)
 }

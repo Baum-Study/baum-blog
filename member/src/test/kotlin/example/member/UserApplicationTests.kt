@@ -1,10 +1,10 @@
-package example.baumblog
+package example.member
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class BaumBlogApplicationTests {
+class UserApplicationTests {
 
     @Test
     fun contextLoads() {
