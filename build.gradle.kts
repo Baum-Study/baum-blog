@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.9.0"
+    kotlin("jvm") version "1.9.24"
 }
 
 java {
@@ -27,10 +27,7 @@ subprojects {
     dependencies {
         implementation("io.github.microutils:kotlin-logging:3.0.5")
         implementation("ch.qos.logback:logback-classic:1.4.12")
-        implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-        implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
         implementation("org.jetbrains.kotlin:kotlin-reflect")
-        implementation("org.yaml:snakeyaml")
     }
 
     tasks.getByName("jar") {
