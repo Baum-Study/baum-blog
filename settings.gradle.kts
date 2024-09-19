@@ -2,7 +2,8 @@ rootProject.name = "baum-blog"
 
 include(
     "member",
-    "blog"
+    "blog",
+    "desktop",
 )
 
 pluginManagement {

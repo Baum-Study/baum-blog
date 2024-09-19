@@ -1,10 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm")
-    kotlin("plugin.spring") apply false
-    id("org.springframework.boot") apply false
-    id("io.spring.dependency-management")
+    kotlin("jvm") version "1.9.0"
 }
 
 java {
@@ -26,26 +23,14 @@ allprojects {
 
 subprojects {
     apply(plugin = "org.jetbrains.kotlin.jvm")
-    apply(plugin = "org.jetbrains.kotlin.plugin.spring")
-    apply(plugin = "org.springframework.boot")
-    apply(plugin = "io.spring.dependency-management")
 
     dependencies {
-        implementation("org.springframework.boot:spring-boot-starter-web")
-        compileOnly("org.projectlombok:lombok")
-        annotationProcessor("org.projectlombok:lombok")
-
-        implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-
-        runtimeOnly("com.h2database:h2")
-        runtimeOnly("org.postgresql:postgresql")
-
-        testImplementation("org.springframework.boot:spring-boot-starter-test")
-        testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-    }
-
-    tasks.getByName("bootJar") {
-        enabled = false
+        implementation("io.github.microutils:kotlin-logging:3.0.5")
+        implementation("ch.qos.logback:logback-classic:1.4.12")
+        implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+        implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
+        implementation("org.jetbrains.kotlin:kotlin-reflect")
+        implementation("org.yaml:snakeyaml")
     }
 
     tasks.getByName("jar") {
@@ -55,7 +40,6 @@ subprojects {
     tasks.withType<KotlinCompile> {
         kotlinOptions {
             freeCompilerArgs = listOf("-Xjsr305=strict")
-            jvmTarget = "21"
         }
     }
 
