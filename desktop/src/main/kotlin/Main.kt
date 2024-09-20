@@ -12,6 +12,7 @@ import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.WindowPlacement
 import androidx.compose.ui.window.WindowState
 import androidx.compose.ui.window.application
+import domain.component.getTokenFromPreferences
 import domain.view.*
 import domain.view.Screen.*
 
@@ -26,6 +27,10 @@ fun main() = application {
         ),
     ) {
         var currentScreen by remember { mutableStateOf(LOGIN) }
+
+        val authorization = remember { getTokenFromPreferences() }
+        if (authorization.hasToken) { currentScreen = HOME }
+
         val showTopAppBar = currentScreen != LOGIN && currentScreen != SIGN_UP
         MaterialTheme {
             Scaffold(
