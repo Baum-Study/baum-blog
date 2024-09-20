@@ -19,9 +19,9 @@ import domain.model.BlogImage
 @Composable
 fun updatePostScreen() {
     var text by remember { mutableStateOf("") }
-    var blogImages by remember { mutableStateOf<List<BlogImage>>(emptyList()) }
+    var blogBlogImages by remember { mutableStateOf<List<BlogImage>>(emptyList()) }
 
-    LaunchedEffect(Unit) { blogImages = fetchImagesFromApi() }
+    LaunchedEffect(Unit) { blogBlogImages = fetchImagesFromApi() }
 
     MaterialTheme {
         Column(
@@ -42,7 +42,7 @@ fun updatePostScreen() {
             Spacer(modifier = Modifier.height(16.dp))
 
             Column {
-                blogImages.chunked(2).forEach {
+                blogBlogImages.chunked(2).forEach {
                     Row(
                         modifier = Modifier
                             .wrapContentWidth()

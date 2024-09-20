@@ -15,9 +15,9 @@ import domain.model.BlogImage
 
 @Composable
 fun homeScreen() {
-    var blogImages by remember { mutableStateOf<List<BlogImage>>(emptyList()) }
+    var blogBlogImages by remember { mutableStateOf<List<BlogImage>>(emptyList()) }
 
-    LaunchedEffect(Unit) { blogImages = fetchImagesFromApi() }
+    LaunchedEffect(Unit) { blogBlogImages = fetchImagesFromApi() }
 
     MaterialTheme {
         Column(
@@ -27,10 +27,10 @@ fun homeScreen() {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            if (blogImages.isEmpty()) {
+            if (blogBlogImages.isEmpty()) {
                 Text("이미지 가져오는 중...", style = MaterialTheme.typography.body1)
             } else {
-                blogImages.chunked(2).forEach { rowImages ->
+                blogBlogImages.chunked(2).forEach { rowImages ->
                     Row(
                         modifier = Modifier
                             .wrapContentWidth()
